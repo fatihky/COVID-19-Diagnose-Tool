@@ -25,7 +25,7 @@ $ conda install nb_conda
 ```
 $ conda activate covid19-diagnose-tool
 ```
-<b><i> Ready to work with.
+<b><i> Ready to work with.</i></b>
 
 # Data Availablity
 Data is so important for Machine Learning based tasks. The data that we feed the deep learning model is currently largest public medical image dataset about COVID-19 which is <a href="https://josephpcohen.com/w/">Joseph Paul Cohen's</a> <a href="https://github.com/ieee8023/covid-chestxray-dataset">covid-chestxray-dataset</a>
