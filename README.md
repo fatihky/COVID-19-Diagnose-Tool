@@ -7,8 +7,8 @@ Diagnose SARS-CoV-2 from Chest X-Ray Images
 
 - Download the Repository and Get In.
 ```
-$ git clone https://github.com/Goodsea/COVID19-Diagnose-Tool.git
-$ cd COVID19-Diagnose-Tool
+$ git clone https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool.git
+$ cd SARS-CoV-2-Diagnose-Tool
 ```
 - Create Anaconda Environment and Install Dependecies
 ```
