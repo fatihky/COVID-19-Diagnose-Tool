@@ -1,5 +1,5 @@
-# COVID19-Diagnose-Tool
-Diagnose COVID-19 Disease from Chest X-Ray/CT Images
+# SARS-CoV-2 Diagnose Tool
+Diagnose SARS-CoV-2 from Chest X-Ray Images
 
 # Introduction 
 
