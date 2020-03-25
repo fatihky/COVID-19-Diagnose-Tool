@@ -83,13 +83,110 @@ Training Loss Graph | Training AUC Graph
 
 
 # Results
+### Just Coronavirus Test Data Results
+|Metrics | Scores|
+---------|-------- |
+|           ROC_AUC          | 0.937 |
+|           Accuracy         | 0.883 |
+|           F1_Score         | 0.883 |
+|           Precision        | 0.883 |
+|           Recall           | 0.883 |
 
-<p align="center">
-  <img src="results/Confusion Matrix - Binary SARS-CoV-2 Classification.jpg" width="600" height="450"> 
-</p>
+
+```
+
+              precision    recall  f1-score   support
+
+           0       0.94      0.94      0.94        53 # SARS-CoV-2 
+           1       0.00      0.00      0.00         2 # ARDS
+           2       0.75      0.60      0.67         5 # SARS
+           3       0.00      0.00      0.00         0
+           4       0.00      0.00      0.00         0
+           5       0.00      0.00      0.00         0
+           6       0.00      0.00      0.00         0
+           7       0.00      0.00      0.00         0
+           8       0.00      0.00      0.00         0
+           9       0.00      0.00      0.00         0
+          10       0.00      0.00      0.00         0
+          11       0.00      0.00      0.00         0
+          12       0.00      0.00      0.00         0
+          13       0.00      0.00      0.00         0
+          14       0.00      0.00      0.00         0
+          15       0.00      0.00      0.00         0
+
+   micro avg       0.88      0.88      0.88        60
+   macro avg       0.11      0.10      0.10        60
+weighted avg       0.90      0.88      0.89        60
+ samples avg       0.88      0.88      0.88        60
+
+```
+
+### All Test Data Together Results
+|Metrics | Scores|
+---------|-------- |
+|           ROC_AUC          | 0.671 |
+|           Accuracy         | 0.201 |
+|           F1_Score         | 0.437 |
+|           Precision        | 0.625 |
+|           Recall           | 0.368 |
+
+```
+              precision    recall  f1-score   support
+
+           0       0.91      0.94      0.93        53 # SARS-CoV-2
+           1       0.00      0.00      0.00         2 # ARDS
+           2       0.75      0.60      0.67         5 # SARS
+           3       0.51      0.73      0.60      4454 # No-Finding
+           4       0.00      0.00      0.00      1421 # Enlarged Cardiom.
+           5       0.58      0.19      0.28      3576 # Cardiomegaly
+           6       0.52      0.18      0.27     10643 # Lung Lesion
+           7       0.00      0.00      0.00      1133 # Lung Opacity
+           8       0.64      0.28      0.39      7129 # Edema
+           9       0.00      0.00      0.00      1720 # Consolidation
+          10       0.00      0.00      0.00       757 # Pneumonia
+          11       0.37      0.03      0.05      4751 # Atelectasis
+          12       0.57      0.19      0.28      2989 # Pneumothorax
+          13       0.74      0.71      0.73     11163 # Pleural Effusion
+          14       0.00      0.00      0.00       404 # Pleural Other
+          15       0.00      0.00      0.00      1209 # Fracture
+
+   micro avg       0.63      0.32      0.43     51409
+   macro avg       0.35      0.24      0.26     51409
+weighted avg       0.51      0.32      0.36     51409
+ samples avg       0.63      0.37      0.44     51409
+```
+
+### Converted Binary Classification of SARS-CoV-2
+|Metrics | Scores|
+---------|-------- |
+|           ROC_AUC          | 0.971 |
+|           Accuracy         | 0.999 |
+|           F1_Score         | 0.925 |
+|           Precision        | 0.909 |
+|           Recall           | 0.943 |
+
+
+### Converted Binary Classification of SARS-CoV-2
+|Metrics | Scores|
+---------|-------- |
+|           ROC_AUC          | 0.971 |
+|           Accuracy         | 0.999 |
+|           F1_Score         | 0.925 |
+|           Precision        | 0.909 |
+|           Recall           | 0.943 |
+
+<hr>
+
+
+Confusion Matrix For Converted Binary Classification of SARS-CoV-2| 
+:-------------------------:|
+|<img src="results/Confusion Matrix - Binary SARS-CoV-2 Classification.jpg"> |
+
+
 
 # Contribute
 All contributions are welcomed. Please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>
+
 # References
 
 [0]  
