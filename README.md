@@ -46,12 +46,40 @@ $ conda activate covid19-diagnose-tool
 <i>With this preventions we trying to reduce impacts of class imbalance.</i>
 <img src="assets/train_val_test_split_scheme.png"></img>
 
-## Data Augmentation 
-## Learning Rate
-## Model
+## Data Augmentation & Normalization
+These Data Augmentation Techniques were used:
+- HorizontalFlip
+- CLAHE
+- RandomBrightnessContrast
+- ShiftScaleRotate
 
+### Light & Hard Data Augmentation 
+We use hard data augmentation to increase variety of oversampled data. Light data augmentation applied to remaining data.
+Only difference between Light-Hard data augmentation is probability and limits but used same data augmentation techniques.
+        
+## Learning Rate
+<p align="center">
+  <img src="assets/optimal_lr.JPG" width="450" height="300"></img>
+</p>
+
+
+<p align="center">
+  <img src="assets/sgdr.png" width="450" height="300"></img>
+</p>
+Image Source: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
+
+## Model
+<p align="center">
+  <img src="assets/BreastNet_arch.png"></img>
+</p>
 
 # Results
+<img src="results/MODEL AUC SCORE - fit - .jpg" width="415" height="276" align="right"></img>
+<img src="results/MODEL LOSS - fit - .jpg"  width="415" height="276" align="left"></img>
+
+<p align="center">
+  <img src="results/Confusion Matrix - Binary SARS-CoV-2 Classification.jpg" width="600" height="450"> 
+</p>
 
 # References
 
@@ -73,4 +101,10 @@ $ conda activate covid19-diagnose-tool
   year={2020}
 }
 ```
+
+[2]
+```
+https://course.fast.ai/
+```
+
 
