@@ -38,8 +38,15 @@ $ conda activate covid19-diagnose-tool
 
 # Technical Details
 
+## Stratified Train/Val/Test Split and Oversampling
+- The dataset has imbalanced classes. So, it may cause overfitting problem. To prevent overfitting problem we use stratification for splitting data. This allows to protect class frequencies while splitting data. 
+
+- Also we apply 10X oversampling to covid-chestxray-dataset's seperated training dataset. 
+
+<i>With this preventions we trying to reduce impacts of class imbalance.</i>
+<img src="assets/train_val_test_split_scheme.png"></img>
+
 ## Data Augmentation 
-## Stratified Train/Val/Test Split
 ## Learning Rate
 ## Model
 
