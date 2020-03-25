@@ -56,33 +56,47 @@ These Data Augmentation Techniques were used:
 ### Light & Hard Data Augmentation 
 We use hard data augmentation to increase variety of oversampled data. Light data augmentation applied to remaining data.
 Only difference between Light-Hard data augmentation is probability and limits but used same data augmentation techniques.
-        
-## Learning Rate
-<p align="center">
-  <img src="assets/optimal_lr.JPG" width="450" height="300"></img>
-</p>
-
-
-<p align="center">
-  <img src="assets/sgdr.png" width="450" height="300"></img>
-</p>
-
-Image Source: 
-[[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
 
 ## Model
+- We used BreastNet model. For More Information: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
 <p align="center">
   <img src="assets/BreastNet_arch.png"></img>
 </p>
 
-# Results
+
+## Training Pipeline
+- Firstly we train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss). 
+<p align="center">
+  <img src="assets/optimal_lr.JPG" width="450" height="300"></img>
+</p>
+<hr>
+- We warm-up model with this decided learning rate for 5 epochs.
+<img src="results/MODEL AUC SCORE - warmup - .jpg" width="415" height="276" align="right"></img>
+<img src="results/MODEL LOSS - warmup - .jpg"  width="415" height="276" align="left"></img>
+<hr>
+- Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
+
+
 <img src="results/MODEL AUC SCORE - fit - .jpg" width="415" height="276" align="right"></img>
 <img src="results/MODEL LOSS - fit - .jpg"  width="415" height="276" align="left"></img>
+
+- - *SGDR 
+<p align="center">
+  <img src="assets/sgdr.png" width="450" height="300"></img>
+</p>
+Image Source: [[3]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
+
+
+
+# Results
+
 
 <p align="center">
   <img src="results/Confusion Matrix - Binary SARS-CoV-2 Classification.jpg" width="600" height="450"> 
 </p>
 
+# Contribute
+All contributions are welcomed. Please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>
 # References
 
 [0]  
@@ -103,8 +117,14 @@ Image Source:
   year={2020}
 }
 ```
-
 [2]
+```
+M. Togaçar, K.B. Özkurt, B. Ergen et al., BreastNet: A novel ˘
+convolutional neural network model through histopathological images for the diagnosis of breast
+cancer, Physica A (2019), doi: https://doi.org/10.1016/j.physa.2019.123592.
+```
+
+[3]
 ```
 https://course.fast.ai/
 ```
