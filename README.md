@@ -59,7 +59,7 @@ Only difference between Light-Hard data augmentation is probability and limits b
 
 ## Model
 - We used BreastNet model. For More Information: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
-<p align="center"><a href="https://drive.google.com/uc?export=view&id=XXX"><img src="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o" style="width: 500px; max-width: 100%; height: auto" title="Click for the larger version." /></a></p>
+<p align="center"><a href="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o"><img src="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o" style="width: 500px; max-width: 100%; height: auto"/></a></p>
 
 </p>
 
