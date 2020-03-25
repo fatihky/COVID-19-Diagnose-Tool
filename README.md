@@ -165,16 +165,6 @@ weighted avg       0.51      0.32      0.36     51409
 |           Precision        | 0.909 |
 |           Recall           | 0.943 |
 
-
-### Converted Binary Classification of SARS-CoV-2
-|Metrics | Scores|
----------|-------- |
-|           ROC_AUC          | 0.971 |
-|           Accuracy         | 0.999 |
-|           F1_Score         | 0.925 |
-|           Precision        | 0.909 |
-|           Recall           | 0.943 |
-
 <hr>
 
 
