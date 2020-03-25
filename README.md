@@ -78,16 +78,15 @@ Only difference between Light-Hard data augmentation is probability and limits b
 
 - Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
 
-<br>
-
-<img src="results/MODEL AUC SCORE - fit - .jpg" width="425" height="276" align="right"></img>
+<img src="results/MODEL AUC SCORE - fit - .jpg" width="425" height="276" align="center"></img>
 <img src="results/MODEL LOSS - fit - .jpg"  width="425" height="276" align="left"></img>
 
-- SGDR 
 
+
+- - SGDR 
 <img src="assets/sgdr.png" width="450" height="300"></img>
-
 Image Source: [[3]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
+<br>
 
 
 # Results
