@@ -65,22 +65,24 @@ Only difference between Light-Hard data augmentation is probability and limits b
 
 
 ## Training Pipeline
-- Firstly we train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss). 
+- Firstly we train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss) (2e-4 selected as lr). 
+
 <p align="center">
   <img src="assets/optimal_lr.JPG" width="450" height="300"></img>
 </p>
-<hr>
+<br>
 - We warm-up model with this decided learning rate for 5 epochs.
 <img src="results/MODEL AUC SCORE - warmup - .jpg" width="415" height="276" align="right"></img>
 <img src="results/MODEL LOSS - warmup - .jpg"  width="415" height="276" align="left"></img>
-<hr>
+<br>
+
 - Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
-
-
 <img src="results/MODEL AUC SCORE - fit - .jpg" width="415" height="276" align="right"></img>
 <img src="results/MODEL LOSS - fit - .jpg"  width="415" height="276" align="left"></img>
 
-- - *SGDR 
+<br>
+
+- SGDR 
 <p align="center">
   <img src="assets/sgdr.png" width="450" height="300"></img>
 </p>
