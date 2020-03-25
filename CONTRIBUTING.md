@@ -10,7 +10,8 @@
 - Use new model with same or better performance than existing solution
 - Apply Feature Engineering for Data
 - Other type of techniques also can be used.
--- You can report your works & techniques with your results even if you couldn't increase scores and performances. 
+
+- #### You can report your works & techniques with your results even if you couldn't increase scores and performances. 
 
 # Train the model with Additional Data
 
