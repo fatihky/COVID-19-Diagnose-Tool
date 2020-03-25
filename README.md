@@ -44,7 +44,7 @@ $ conda activate covid19-diagnose-tool
 - Also we apply 10X oversampling to covid-chestxray-dataset's seperated training dataset. 
 
 <i>With this preventions we trying to reduce impacts of class imbalance.</i>
-<p align="center"><a href="https://drive.google.com/uc?export=view&id=1-kwF3GrHc4_PEj3NyHF-SZj9jWTRuf4k"><img src="https://drive.google.com/uc?export=view&id=1-kwF3GrHc4_PEj3NyHF-SZj9jWTRuf4k" style="width: 500px; max-width: 100%; height: auto"/></a></p>
+<img src="assets/train_val_test_split_scheme.png"></img>
 
 ## Data Augmentation & Normalization
 These Data Augmentation Techniques were used:
@@ -59,22 +59,24 @@ Only difference between Light-Hard data augmentation is probability and limits b
 
 ## Model
 - We used BreastNet model. For More Information: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
-<p align="center"><a href="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o"><img src="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o" style="width: 500px; max-width: 100%; height: auto"/></a></p>
-
+<p align="center">
+  <img src="assets/BreastNet_arch.png"></img>
 </p>
+
 
 ## Training Pipeline
 - Firstly we've train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss) (2e-4 selected as lr). 
 
-<p align="center"><a href="https://drive.google.com/uc?export=view&id=1ALTdJz2FeHd3Hka1hqPvyRjTMX5-P44k"><img src="https://drive.google.com/uc?export=view&id=1ALTdJz2FeHd3Hka1hqPvyRjTMX5-P44k" width="450" height="300"/></a></p>
+<p align="center"><img src="assets/optimal_lr.JPG" width="450" height="300"></img></p>
 
 - We've warm-up model with this decided learning rate for 5 epochs.
 
 Warm-Up Training Loss Graph | Warm-Up Training AUC Graph 
 :-------------------------:|:-------------------------:
-<a href="https://drive.google.com/uc?export=view&id=1Yws5ECQRTq9imBFKv-u1gRGaTDPde2Ai"><img src="https://drive.google.com/uc?export=view&id=1Yws5ECQRTq9imBFKv-u1gRGaTDPde2Ai"/></a> |  <a href="https://drive.google.com/uc?export=view&id=1LZ-rDyEb-N_YEoKc599IdGpILqxPtCJH"><img src="https://drive.google.com/uc?export=view&id=1LZ-rDyEb-N_YEoKc599IdGpILqxPtCJH"/></a>
+<img src="results/MODEL LOSS - warmup - .jpg"></img>  |  <img src="results/MODEL AUC SCORE - warmup - .jpg"></img>
 
 - Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
+
 Training Loss Graph | Training AUC Graph 
 :-------------------------:|:-------------------------:
 <img src="results/MODEL LOSS - fit - .jpg"></img>  |  <img src="results/MODEL AUC SCORE - fit - .jpg"></img>
@@ -206,5 +208,3 @@ cancer, Physica A (2019), doi: https://doi.org/10.1016/j.physa.2019.123592.
 ```
 https://course.fast.ai/
 ```
-
-
