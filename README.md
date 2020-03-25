@@ -85,6 +85,7 @@ Only difference between Light-Hard data augmentation is probability and limits b
 <p align="center">
   <img src="assets/sgdr.png" width="450" height="300"></img>
 </p>
+
 Image Source: [[3]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
 
 # Results
