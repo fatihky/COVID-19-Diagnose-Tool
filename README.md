@@ -25,26 +25,46 @@ $ conda install nb_conda
 ```
 $ conda activate covid19-diagnose-tool
 ```
+
+- Download and Replace Data
+- - Download and Extract CheXpert-v1.0-small from https://stanfordmlgroup.github.io/competitions/chexpert/ to "data" folder (data/CheXpert-v1.0-small) [[0]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
+
+- - Download and Extract "covid-chestxray-dataset" via "data/get_covid-chestxray-dataset.sh" [[1]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
+
+
 <b><i> Ready to work with.</i></b>
 
 # Data Availablity
-Data is so important for Machine Learning based tasks. The data that we feed the deep learning model is currently largest public medical image dataset about COVID-19 which is <a href="https://josephpcohen.com/w/">Joseph Paul Cohen's</a> <a href="https://github.com/ieee8023/covid-chestxray-dataset">covid-chestxray-dataset</a>
+Data is so important for Machine Learning based tasks. The data that we feed the deep learning model is currently largest public medical image dataset about COVID-19 which is <a href="https://josephpcohen.com/w/">Joseph Paul Cohen's</a> <a href="https://github.com/ieee8023/covid-chestxray-dataset">covid-chestxray-dataset</a>. Also we use CheXpert Dataset and concatenate with covid-chestxray-dataset. 
 
 # Technical Details
-## Data Augmentation  
-<a href="https://github.com/ieee8023/covid-chestxray-dataset">covid-chestxray-dataset</a> is the largest public medical image dataset about COVID-19 but still it's data size is not enough for deep learning models to get reliable results. What I mean by reliable results is that the model does not undergo overfitting. If we get nice results with true metrics in training but bad results in test set, this will shows that our algorithm doesn't work properly. So to prevent this, we think to apply data augmentation. But there is another problem with data: Class Imbalance. There is much more data with "COVID-19" label than others. This may cause to overfitting, too. 
 
-Data Augmentation (DA) process works random with pre-defined probabilities. If we give higher probabilities to DA function, this will increase the probabilities of apply the DA function to data. So our solution to solve this problem is use low DA probabilities for COVID-19 cases and use high for others. 
-
-## Stratified K-Fold and Iteratively Stratified Train/Test Split
-We split whole data mainly into 3 chunks: [Training-Validation]-[Testing] Because we need to detect that if model undergoes overfitting. Firstly, with iterative_train_test_split function we split data into "USED-FOR-TRAINING_DATA" and "USED-FOR-TESTING_DATA" as 50% - 50%. (Give higher rates as much as possible for "USED-FOR-TESTING_DATA" rate. Thus, we can trust more to our results.) 
-
-But why we didn't use simple train_test_split function? Some classes ('No Finding', 'Pneumocystis') in dataset have just 2 datas. If we apply train_test_split function, probably we can't see the how model performs classification for those classes, well. Because it splits data randomized. But iterative_train_test_split function splits data according to class-balance. And for the same related reasons we use Stratified K-Fold than K-Fold. K=3 were used.
-
-## Learning Rate Scheduler
-
+## Data Augmentation 
+## Stratified Train/Val/Test Split
+## Learning Rate
 ## Model
 
 
 # Results
+
+# References
+
+[0]  
+```
+@inproceedings{irvin2019chexpert,
+  title={CheXpert: A large chest radiograph dataset with uncertainty labels and expert comparison},
+  author={Irvin, Jeremy and Rajpurkar, Pranav and Ko, Michael and Yu, Yifan and Ciurea-Ilcus, Silviana and Chute, Chris and Marklund, Henrik and Haghgoo, Behzad and Ball, Robyn and Shpanskaya, Katie and others},
+  booktitle={Thirty-Third AAAI Conference on Artificial Intelligence},
+  year={2019}
+}
+```
+[1]
+```
+@article{cohen2020covid,
+  title={COVID-19 image data collection},
+  author={Joseph Paul Cohen},
+  journal={https://github.com/ieee8023/covid-chestxray-dataset},
+  year={2020}
+}
+```
 
