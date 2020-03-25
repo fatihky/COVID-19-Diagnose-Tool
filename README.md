@@ -80,6 +80,7 @@ Only difference between Light-Hard data augmentation is probability and limits b
 <img src="results/MODEL AUC SCORE - fit - .jpg" width="418" height="276" align="right"></img>
 <img src="results/MODEL LOSS - fit - .jpg"  width="418" height="276" align="left"></img>
 
+<hr>
 - SGDR 
 <p align="center">
   <img src="assets/sgdr.png" width="450" height="300"></img>
