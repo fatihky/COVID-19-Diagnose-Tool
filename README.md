@@ -73,8 +73,8 @@ Only difference between Light-Hard data augmentation is probability and limits b
 
 
 - We've warm-up model with this decided learning rate for 5 epochs.
-<img src="results/MODEL AUC SCORE - warmup - .jpg" width="415" height="276" align="right"></img>
-<img src="results/MODEL LOSS - warmup - .jpg"  width="415" height="276" align="left"></img>
+<img src="results/MODEL AUC SCORE - warmup - .jpg" width="418" height="276" align="right"></img>
+<img src="results/MODEL LOSS - warmup - .jpg"  width="418" height="276" align="left"></img>
 
 - Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
 <img src="results/MODEL AUC SCORE - fit - .jpg" width="415" height="276" align="right"></img>
