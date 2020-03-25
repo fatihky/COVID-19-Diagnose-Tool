@@ -60,9 +60,9 @@ Only difference between Light-Hard data augmentation is probability and limits b
 ## Model
 - We used BreastNet model. For More Information: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
 <p align="center">
-  <img src="assets/BreastNet_arch.png"></img>
+  ![image](https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o)
+  <img src="https://drive.google.com/uc?export=view&id=1r5H6v7r3Flwhx4Q5SkEr4NcNeM73c99o"></img>
 </p>
-
 
 ## Training Pipeline
 - Firstly we've train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss) (2e-4 selected as lr). 
