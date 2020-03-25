@@ -24,7 +24,7 @@ def plot_confusion_matrix(cm,
                           normalize    = True,                # show proportions
                           target_names = y_labels_vals,       # list of names of the classes
                           title        = best_estimator_name) # title of graph
-    Citiation
+    Citation
     ---------
     http://scikit-learn.org/stable/auto_examples/model_selection/plot_confusion_matrix.html
     """
