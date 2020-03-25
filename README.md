@@ -120,7 +120,7 @@ weighted avg       0.90      0.88      0.89        60
  samples avg       0.88      0.88      0.88        60
 
 ```
-
+<hr>
 ### All Test Data Together Results
 |Metrics | Scores|
 ---------|-------- |
@@ -155,7 +155,7 @@ weighted avg       0.90      0.88      0.89        60
 weighted avg       0.51      0.32      0.36     51409
  samples avg       0.63      0.37      0.44     51409
 ```
-
+<hr>
 ### Converted Binary Classification of SARS-CoV-2
 |Metrics | Scores|
 ---------|-------- |
