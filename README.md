@@ -1,5 +1,5 @@
-# SARS-CoV-2 Diagnose Tool
-Diagnose SARS-CoV-2 from Chest X-Ray Images
+# COVID-19 Diagnose Tool
+Diagnose COVID-19 from Chest X-Ray Images
 
 # Introduction 
 
@@ -10,8 +10,8 @@ Data is so important for Machine Learning based tasks. The data that we feed the
 
 - Download the Repository and Get In.
 ```
-$ git clone https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool.git
-$ cd SARS-CoV-2-Diagnose-Tool
+$ git clone https://github.com/Goodsea/COVID-19-Diagnose-Tool.git
+$ cd COVID-19-Diagnose-Tool
 ```
 - Create Anaconda Environment and Install Dependecies
 ```
