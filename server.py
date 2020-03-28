@@ -88,7 +88,7 @@ def predict():
     paths = [path]
     img_batch = get_images(paths)
 
-    predictions = get_predictions(model, img_batch)
+    predictions = get_predictions(model, img_batch).astype(float)
     print(predictions)
     pred_label_dicts = map_predictions2labels(predictions)
     print(pred_label_dicts)
