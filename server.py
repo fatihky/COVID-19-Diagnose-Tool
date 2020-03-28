@@ -51,12 +51,6 @@ def map_predictions2labels(predictions, classes = ["SARS-CoV-2", "ARDS","SARS","
 
 	return label_dicts
 
-class NumpyEncoder(json.JSONEncoder):
-    def default(self, obj):
-        if isinstance(obj, np.ndarray):
-            return obj.tolist()
-        return json.JSONEncoder.default(self, obj)
-
 # file uploading helper
 def allowed_file(filename):
   return '.' in filename and \
@@ -100,7 +94,7 @@ def predict():
     }
     # [END PREDICTION]
 
-    return json.dumps(result, cls=NumpyEncoder)
+    return json.dumps(result)
   else:
     return json.dumps({ "error": "no allowed files specified" })
 
