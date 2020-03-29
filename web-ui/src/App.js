@@ -49,6 +49,11 @@ function App() {
       .then(result => result.json())
       .then(result => {
         console.log(result)
+
+        if (result.error) {
+          return alert(result.error)
+        }
+
         setState({
           ...state,
           results: result
