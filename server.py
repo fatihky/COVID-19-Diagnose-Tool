@@ -91,7 +91,7 @@ def allowed_file(filename):
 @api.route('/predict', methods=['POST'])
 def predict():
     # check if the post request has the file part
-    files = request.files.getlist("file")
+    files = request.files.getlist("file[]")
     
     paths = []
     for file in files:

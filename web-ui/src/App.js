@@ -8,7 +8,7 @@ const ENDPOINT = '/predict'
 
 function App() {
   const [state, setState] = useState(() => ({ images: [], files: [], results: [] }))
-  const [modalState, setModalState] = useState(() => ({ visible: false, image: null }))
+  const [modalState, setModalState] = useState(() => ({ visible: false, image: null, addPrefix: true }))
   const onDrop = useCallback(acceptedFiles => {
     console.log('on drop:', { acceptedFiles })
 
@@ -28,12 +28,12 @@ function App() {
         console.log('images:', images)
 
         setState({
-          ...state,
+          results: [], // reset results
           files: acceptedFiles,
           images
         })
       })
-  }, [ state, setState ])
+  }, [ setState ])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({ onDrop })
   const uploadFiles = useCallback(() => {
     const formData = new FormData();
@@ -59,10 +59,11 @@ function App() {
       })
     ;
   }, [ state, setState ])
-  const onImageClick = useCallback((image) => {
+  const onImageClick = useCallback((image, addPrefix = true) => {
     setModalState({
       visible: true,
-      image
+      image,
+      addPrefix
     })
   }, [ setModalState ])
   const closePreviewModal = useCallback(() => {
@@ -83,7 +84,7 @@ function App() {
         onCancel={closePreviewModal}
         onOk={closePreviewModal}
       >
-        {modalState.image && <img src={modalState.image} alt="Big" style={{ maxWidth: '100%' }} />}
+        {modalState.image && <img src={`${modalState.addPrefix ? 'data:image/png;base64,' : ''}${modalState.image}`} alt="Big" style={{ maxWidth: '100%' }} />}
       </Modal>
 
       <Row>
@@ -115,7 +116,7 @@ function App() {
                   <header>
                     <h2>Image {i + 1}</h2><span>({state.files[i].name})</span>
                   </header>
-                  <span style={{ cursor: 'pointer' }} onClick={() => onImageClick(image)}>
+                  <span style={{ cursor: 'pointer' }} onClick={() => onImageClick(image, false)}>
                     <img src={image} alt="Test" style={{ margin: 'auto', maxWidth: '50%' }} />
                   </span>
                 </Col>
@@ -135,7 +136,7 @@ function App() {
                           <span>Prediction: {result.prediction}</span>
                           <br/>
                           {result.heatmapBase64 && <span>
-                            <img src={result.heatmapBase64} alt={`Result for ${result.disease}`} style={{ margin: 'auto', maxWidth: '80%' }} />
+                            <img src={`data:image/png;base64,${result.heatmapBase64}`} alt={`Result for ${result.disease}`} style={{ margin: 'auto', maxWidth: '80%' }} />
                           </span>}
                         </Card>
                       </Col>
