@@ -17,7 +17,8 @@ api = Flask(__name__)
 
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-with tf.device('/cpu:0'):
+device = "/cpu:0" # "/cpu:0"
+with tf.device(device):
   model = load_model("models/CORONA_DIAGNOSE_MODEL.h5")
   print(model.summary())
 
@@ -38,7 +39,7 @@ def get_images(paths):
 	return np.array(img_batch), np.array(img_origs)
 
 def get_predictions(model, img_batch):
-	with tf.device('/cpu:0'):
+	with tf.device(device):
 		prediction_batch = model.predict(img_batch)
 	return prediction_batch	
 
