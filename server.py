@@ -1,5 +1,5 @@
 import os
-from flask import Flask, json, flash, request, redirect, url_for
+from flask import Flask, json, flash, request, redirect, url_for, send_from_directory
 from werkzeug.utils import secure_filename
 
 import cv2
@@ -13,7 +13,7 @@ ALLOWED_EXTENSIONS = {'txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'}
 
 companies = [{"id": 1, "name": "Company One"}, {"id": 2, "name": "Company Two"}]
 
-api = Flask(__name__)
+api = Flask(__name__, static_folder='web-ui/build')
 
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
@@ -105,6 +105,15 @@ def predict():
       return json.dumps({ "error": "no allowed files specified" })
 
   return json.dumps(results)
+
+# Serve React App
+@api.route('/', defaults={'path': ''})
+@api.route('/<path:path>')
+def serve(path):
+    if path != "" and os.path.exists(api.static_folder + '/' + path):
+        return send_from_directory(api.static_folder, path)
+    else:
+        return send_from_directory(api.static_folder, 'index.html')
 
 if __name__ == '__main__':
     api.run()
