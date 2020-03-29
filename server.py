@@ -59,7 +59,6 @@ def map_predictions(paths, predictions, heatmaps, classes = ["SARS-CoV-2", "ARDS
     
     return result
 
-
 def gradcam(model, img_orig, img_b, pred, conf, label_max):
     img_encs = []
     for lbl_index in range(label_max):
@@ -95,24 +94,18 @@ def predict():
     
     paths = []
     for file in files:
-        print(file)
-        print(allowed_file(file.filename))
         if file and allowed_file(file.filename):
             filename = secure_filename(file.filename)
             file.save(os.path.join(api.config['UPLOAD_FOLDER'], filename))
             path = os.path.join(api.config['UPLOAD_FOLDER'], filename)
-            print(path)
             paths.append(path)
 
     if len(paths)==0:
     	return json.dumps({ "error": "no allowed files specified" })
 
-    print(paths)
-
     img_batch, img_origs = get_images(paths)
 
     predictions = get_predictions(model, img_batch).astype(float)
-    print(predictions)
 
     heatmaps = []
     for k in range(len(img_batch)):
@@ -120,7 +113,6 @@ def predict():
 
     # This will be sent back to the ui
     result = map_predictions(paths, predictions, heatmaps)
-    print(result)
     # [END PREDICTION]
 
     return json.dumps(result, cls=NumpyEncoder)
