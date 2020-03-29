@@ -17,7 +17,7 @@ api = Flask(__name__, static_folder='web-ui/build')
 
 api.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-device = "/cpu:0" # "/cpu:0"
+device = "/cpu:0" # "/gpu:0"
 with tf.device(device):
   model = load_model("models/CORONA_DIAGNOSE_MODEL.h5")
   print(model.summary())
@@ -92,7 +92,7 @@ def allowed_file(filename):
 def predict():
     # check if the post request has the file part
     files = request.files.getlist("file[]")
-    
+
     paths = []
     for file in files:
         if file and allowed_file(file.filename):

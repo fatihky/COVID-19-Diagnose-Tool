@@ -124,7 +124,7 @@ function App() {
                 <Col span={12}>
                   <Row>
                     <Col span={24}>
-                      <h2>Results</h2>
+                      <h2>Result {i + 1}</h2>
                     </Col>
                     {state.results[i] && state.results[i].data.map(result => (
                       <Col span={12}>
