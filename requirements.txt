@@ -42,10 +42,6 @@ MarkupSafe==1.1.1
 matplotlib==3.2.0
 mistune==0.8.4
 mock==3.0.5
-nb-conda==2.2.1
-nb-conda-kernels==2.2.2
-nbconvert==5.6.1
-nbformat==5.0.4
 networkx==2.4
 notebook==6.0.3
 numpy==1.18.1
@@ -69,8 +65,6 @@ pyrsistent==0.15.7
 python-dateutil==2.8.1
 pytz==2019.3
 PyWavelets==1.1.1
-pywin32==227
-pywinpty==0.5.7
 PyYAML==5.3
 pyzmq==18.1.1
 requests==2.23.0
@@ -104,3 +98,4 @@ Werkzeug==1.0.0
 wincertstore==0.2
 wrapt==1.11.1
 zipp==2.2.0
+flask
