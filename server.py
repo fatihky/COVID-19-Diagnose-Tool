@@ -59,44 +59,46 @@ def allowed_file(filename):
 @api.route('/predict', methods=['POST'])
 def predict():
   # check if the post request has the file part
-  if 'file' not in request.files:
-    return json.dumps({ "error": "no file" })
+  files = flask.request.files.getlist("file")
 
-  file = request.files['file']
+  results = []
 
-  if file.filename == '':
-    return json.dumps({ "error": "no file" })
+  for file in files:
+    if file.filename == '':
+      return json.dumps({ "error": "no file" })
 
-  if file and allowed_file(file.filename):
-    filename = secure_filename(file.filename)
-    file.save(os.path.join(api.config['UPLOAD_FOLDER'], filename))
-    print("uploaded file path:")
-    print(os.path.join(api.config['UPLOAD_FOLDER'], filename))
+    if file and allowed_file(file.filename):
+      filename = secure_filename(file.filename)
+      file.save(os.path.join(api.config['UPLOAD_FOLDER'], filename))
+      print("uploaded file path:")
+      print(os.path.join(api.config['UPLOAD_FOLDER'], filename))
 
-    path = os.path.join(api.config['UPLOAD_FOLDER'], filename)
+      path = os.path.join(api.config['UPLOAD_FOLDER'], filename)
 
-    # [START PREDICTION]
-    with tf.device('/cpu:0'):
-      model = load_model("models/CORONA_DIAGNOSE_MODEL.h5")
+      # [START PREDICTION]
+      with tf.device('/cpu:0'):
+        model = load_model("models/CORONA_DIAGNOSE_MODEL.h5")
 
-    paths = [path]
-    img_batch = get_images(paths)
+      paths = [path]
+      img_batch = get_images(paths)
 
-    predictions = get_predictions(model, img_batch).astype(float)
-    print(predictions)
-    pred_label_dicts = map_predictions2labels(predictions)
-    print(pred_label_dicts)
+      predictions = get_predictions(model, img_batch).astype(float)
+      print(predictions)
+      pred_label_dicts = map_predictions2labels(predictions)
+      print(pred_label_dicts)
 
-    # This will be sent back to the ui
-    result = {
-      "predictions": predictions,
-      "pred_label_dicts": pred_label_dicts
-    }
-    # [END PREDICTION]
+      # This will be sent back to the ui
+      result = {
+        "predictions": predictions,
+        "pred_label_dicts": pred_label_dicts
+      }
+      # [END PREDICTION]
 
-    return json.dumps(result)
-  else:
-    return json.dumps({ "error": "no allowed files specified" })
+      results.append(result)
+    else:
+      return json.dumps({ "error": "no allowed files specified" })
+
+  return json.dumps(results)
 
 if __name__ == '__main__':
     api.run()
