@@ -2,6 +2,9 @@
 Diagnose COVID-19 from Chest X-Ray Images
 
 # Introduction 
+In December 2019, Coronavirus Disease 2019 (COVID-19), where its first cases were seen in Wuhan, China's Hubei province, soon spread across the world, causing more than 700,000 cases and more than 34,000 deaths. At the same time, this epidemic caused by COVID-19 was declared as a pandemic by the World Health Organization (WHO) on March 11, 2020.
+
+As in cancer diseases, early diagnosis is very important for this disease. Early diagnosis usually facilitates the patient's survival because it allows the necessary intervention to be done at the right time. Today, the diagnosis of COVID-19 is made thanks to the COVID-19 test kits based on the RT-PCR (and its derivatives) method. The sensitivity and specificity rates of the newly developed COVID-19 test kits are very high but they can give results within 1-2 days. Although individuals with COVID-19 disease have negative COVID-19 test, some studies have reported anomaly in radiology and laboratory findings. Failure to take samples correctly through the nose and mouth can lead to misdiagnosis of the disease by the COVID-19 test kits. In order to increase the sensitivity and specificity values of COVID-19 disease diagnosis systems, the diagnosis is not made in a single way, the application of various laboratory tests with the COVID-19 test kit, and the analysis of radiology images (x-ray and computed tomography images) are recommended and supported by many scientific researches.
 
 # Data Availablity
 Data is so important for Machine Learning based tasks. The data that we feed the deep learning model is currently largest public medical image dataset about COVID-19 which is Joseph Paul Cohen's covid-chestxray-dataset [[0]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References). Also we use CheXpert Dataset [[1]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References) and concatenate with covid-chestxray-dataset. 
@@ -28,6 +31,8 @@ $ conda install nb_conda
 ```
 $ conda activate covid19-diagnose-tool
 ```
+
+
 
 - Download and Replace Data
 - - Download and Extract CheXpert-v1.0-small from https://stanfordmlgroup.github.io/competitions/chexpert/ to "data" folder (data/CheXpert-v1.0-small) 
