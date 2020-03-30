@@ -122,48 +122,51 @@ function App() {
 
         {/* display a Row for each image */}
         {/* <Row key={`${state.files[i].name}-${state.files[i].size}`}> */}
-        <Row gutter={[20, 20]}>
-          {state.images.map((image, i) => (
-            <Col span={24} key={`${state.files[i].name}-${state.files[i].size}`}>
-              <Row>
-                <Col span={12}>
-                  <header>
-                    <h2>Image {i + 1}</h2><span>({state.files[i].name})</span>
-                  </header>
-                  <span style={{ cursor: 'pointer' }} onClick={() => onImageClick(image, false)}>
-                    <img src={image} alt="Test" style={{ margin: 'auto', maxWidth: '50%' }} />
-                  </span>
-                </Col>
+        <Col span={24}>
+          <Row gutter={[20, 20]}>
+            {state.images.map((image, i) => (
+              <Col span={24} key={`${state.files[i].name}-${state.files[i].size}`}>
+                <Row>
+                  <Col span={12}>
+                    <header>
+                      <h2>Image {i + 1}</h2><span>({state.files[i].name})</span>
+                    </header>
+                    <span style={{ cursor: 'pointer' }} onClick={() => onImageClick(image, false)}>
+                      <img src={image} alt="Test" style={{ margin: 'auto', maxWidth: '50%' }} />
+                    </span>
+                  </Col>
 
-                <Col span={12}>
-                  <Row>
-                    <Col span={24}>
-                      <h2>Results</h2>
-                      {state.loading && <span>Loading...</span>}
-                    </Col>
-                    {state.results[i] && state.results[i].data.map(result => (
-                      <Col span={12}>
-                        <Card
-                          hoverable={true}
-                          onClick={() => result.heatmapBase64 && onImageClick(result.heatmapBase64)}
-                        >
-                          <h3>{result.disease}</h3>
-                          <span>Prediction: {result.prediction}</span>
-                          <br/>
-                          {result.heatmapBase64 && <span>
-                            <img src={`data:image/png;base64,${result.heatmapBase64}`} alt={`Result for ${result.disease}`} style={{ margin: 'auto', maxWidth: '80%' }} />
-                          </span>}
-                        </Card>
+                  <Col span={12}>
+                    <Row>
+                      <Col span={24}>
+                        <h2>Results</h2>
+                        {state.loading && <span>Loading...</span>}
                       </Col>
-                    ))}
-                  </Row>
-                </Col>
-              </Row>
+                      {state.results[i] && state.results[i].data.map(result => (
+                        <Col span={12}>
+                          <Card
+                            hoverable={true}
+                            onClick={() => result.heatmapBase64 && onImageClick(result.heatmapBase64)}
+                          >
+                            <h3>{result.disease}</h3>
+                            <span>Prediction: {result.prediction}</span>
+                            <br/>
+                            {result.heatmapBase64 && <span>
+                              <img src={`data:image/png;base64,${result.heatmapBase64}`} alt={`Result for ${result.disease}`} style={{ margin: 'auto', maxWidth: '80%' }} />
+                            </span>}
+                          </Card>
+                        </Col>
+                      ))}
+                    </Row>
+                  </Col>
+                </Row>
 
-              <Divider/>
-            </Col>
-          ))}
-        </Row>
+                <Divider/>
+              </Col>
+            ))}
+          </Row>
+        </Col>
+
       </Row>
       {/* / Test Images and Result Images */}
 
