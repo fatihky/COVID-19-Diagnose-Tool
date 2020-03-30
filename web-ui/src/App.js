@@ -7,7 +7,7 @@ import logo from './logo.jpg'
 const ENDPOINT = '/predict'
 
 function App() {
-  const [state, setState] = useState(() => ({ images: [], files: [], results: [] }))
+  const [state, setState] = useState(() => ({ images: [], files: [], results: [], loading: false }))
   const [modalState, setModalState] = useState(() => ({ visible: false, image: null, addPrefix: true }))
   const onDrop = useCallback(acceptedFiles => {
     console.log('on drop:', { acceptedFiles })
@@ -28,12 +28,13 @@ function App() {
         console.log('images:', images)
 
         setState({
+          ...state,
           results: [], // reset results
           files: acceptedFiles,
           images
         })
       })
-  }, [ setState ])
+  }, [ state, setState ])
   const {getRootProps, getInputProps, isDragActive} = useDropzone({ onDrop })
   const uploadFiles = useCallback(() => {
     const formData = new FormData();
@@ -41,6 +42,9 @@ function App() {
     state.files.forEach(file => formData.append('file[]', file, file.name))
 
     console.log('formData:', formData)
+
+    // set loading
+    setState({ ...state, loading: true })
 
     fetch(ENDPOINT, {
       method: "POST",
@@ -58,9 +62,14 @@ function App() {
           ...state,
           results: result
         })
+
+        // set loading
+        setState({ ...state, loading: false })
       })
       .catch(err => {
         console.log('fetch error:', err)
+        // set loading
+        setState({ ...state, loading: false })
       })
     ;
   }, [ state, setState ])
@@ -130,6 +139,7 @@ function App() {
                   <Row>
                     <Col span={24}>
                       <h2>Results</h2>
+                      {state.loading && <span>Loading...</span>}
                     </Col>
                     {state.results[i] && state.results[i].data.map(result => (
                       <Col span={12}>
