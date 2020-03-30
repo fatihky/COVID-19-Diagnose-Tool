@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { Button, Card, Col, Row, Divider, Modal } from 'antd';
+import { DownOutlined, UpOutlined } from '@ant-design/icons';
 import { useDropzone } from 'react-dropzone'
 
 import logo from './logo.jpg'
@@ -86,11 +87,14 @@ function App() {
       visible: false
     })
   }, [modalState, setModalState])
+  const scrollToTop = useCallback(() => document.getElementById('top').scrollIntoView({ behavior: 'smooth' }), [])
+  const scrollToBottom = useCallback(() => document.getElementById('bottom').scrollIntoView({ behavior: 'smooth' }), [])
 
   console.log(state)
 
   return (
-    <div style={{ textAlign: 'center' }}>
+    <div id="top" style={{ textAlign: 'center' }}>
+      {/* Image Preview Modal */}
       <Modal
         title='Image Preview (use "right click > Save image as ..." to view original size)'
         visible={modalState.visible}
@@ -102,6 +106,11 @@ function App() {
         {modalState.image && <img src={`${modalState.addPrefix ? 'data:image/png;base64,' : ''}${modalState.image}`} alt="Big" style={{ maxWidth: '100%' }} />}
       </Modal>
 
+      {/* Scroll to Bottom Button */}
+      <Button type="primary" icon={<UpOutlined />} size='large' onClick={scrollToTop} style={{ position: 'fixed', bottom: '3.5em', right: '1em', zIndex: '9999' }} />
+      <Button type="primary" icon={<DownOutlined />} size='large' onClick={scrollToBottom} style={{ position: 'fixed', bottom: '1em', right: '1em', zIndex: '9999' }} />
+
+      {/* Logo */}
       <Row>
         <Col span={24}>
           <img src={logo} style={{ width: '15em' }} alt="logo" />
@@ -196,6 +205,7 @@ function App() {
         </Col>
       </Row>
 
+      <div id="bottom" />
     </div>
   );
 }
