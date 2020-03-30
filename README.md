@@ -11,8 +11,8 @@ Diagnose COVID-19 from Chest X-Ray Images
 # Data Availablity
 Data is so important for Machine Learning based tasks. The data that we feed the deep learning model is currently largest public medical image dataset about COVID-19 which is Joseph Paul Cohen's covid-chestxray-dataset [[0]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References). Also we use CheXpert Dataset [[1]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References) and concatenate with covid-chestxray-dataset. 
 
-# Installation
-
+# Installation 
+_(Tested on Windows 10)_
 - Download the Repository and Get In.
 ```
 $ git clone https://github.com/Goodsea/COVID-19-Diagnose-Tool.git
