@@ -203,7 +203,7 @@ Confusion Matrix For Converted Binary Classification of SARS-CoV-2|
 All contributions are welcomed. Please see <a href="CONTRIBUTING.md">CONTRIBUTING.md</a>
 
 # NOTE:
-This project is just beginning in this field. We don't think this idea scientific, yes we tried it and dealing with its problems but we think, we didn't succeed yet. We will improve this. <!Very Soon!>
+This project is just beginning in this field. We don't think this idea as a scientific project, yes we tried it to make more scientific and appliable project and dealing with its problems but we think, we didn't succeed yet. We will improve this. <!Very Soon!>
 
 # References
 
