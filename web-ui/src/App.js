@@ -55,19 +55,19 @@ function App() {
         console.log(result)
 
         if (result.error) {
+          setState({ ...state, loading: false })
           return alert(result.error)
         }
 
         setState({
           ...state,
+          loading: false,
           results: result
         })
-
-        // set loading
-        setState({ ...state, loading: false })
       })
       .catch(err => {
         console.log('fetch error:', err)
+        alert('Error: ' + err.message)
         // set loading
         setState({ ...state, loading: false })
       })
@@ -95,6 +95,7 @@ function App() {
         title='Image Preview (use "right click > Save image as ..." to view original size)'
         visible={modalState.visible}
         width="99%"
+        style={{ top: "10px" }}
         onCancel={closePreviewModal}
         onOk={closePreviewModal}
       >
@@ -139,7 +140,7 @@ function App() {
                   <Col span={12}>
                     <Row>
                       <Col span={24}>
-                        <h2>Results</h2>
+                        <h2>Result {i + 1}</h2>
                         {state.loading && <span>Loading...</span>}
                       </Col>
                       {state.results[i] && state.results[i].data.map(result => (
