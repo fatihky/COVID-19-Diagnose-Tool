@@ -15,26 +15,24 @@ Data is so important for Machine Learning based tasks. The data that we feed the
 _(Tested on Windows 10)_
 - Download the Repository and Get In.
 ```
-$ git clone https://github.com/Goodsea/COVID-19-Diagnose-Tool.git
-$ cd COVID-19-Diagnose-Tool
+> git clone https://github.com/Goodsea/COVID-19-Diagnose-Tool.git
+> cd COVID-19-Diagnose-Tool
 ```
 - Create Anaconda Environment and Install Dependecies
 ```
-$ conda create -n covid19-diagnose-tool python=3.6
-$ conda activate covid19-diagnose-tool
-$ pip install -r requirements.txt
+> conda create -n covid19-diagnose-tool python=3.6
+> conda activate covid19-diagnose-tool
+> pip install -r requirements.txt
 ```
 ```
 # Get access to libraries in conda environment from Jupyter Notebook
-$ conda install nb_conda 
+> conda install nb_conda 
 ```
 
 - Activate the Anaconda Environment 
 ```
-$ conda activate covid19-diagnose-tool
+> conda activate covid19-diagnose-tool
 ```
-
-
 
 - Download and Replace Data
 - - Download and Extract CheXpert-v1.0-small from https://stanfordmlgroup.github.io/competitions/chexpert/ to "data" folder (data/CheXpert-v1.0-small) 
