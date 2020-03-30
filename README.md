@@ -45,17 +45,18 @@ _(Tested on Windows 10)_
 - Install [node.js](nodejs.org) and [npm](npmjs.com). We suggest using [nvm.sh](nvm.sh).
 - Install web ui's dependencies:
 ```
-$ cd web-ui
-$ npm i
+> cd web-ui
+> npm i
 ```
 - Build web ui:
 ```
-$ cd web-ui
-$ npm run build
+> cd web-ui
+> npm run build
+> cd ..
 ```
 - Start the http server. Inside the root directory:
 ```
-$ python server.py
+> python server.py
 ```
 
 # Technical Details
