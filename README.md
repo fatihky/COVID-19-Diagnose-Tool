@@ -67,7 +67,7 @@ _(Tested on Windows 10)_
 - Also we apply 10X oversampling to covid-chestxray-dataset's seperated training dataset. 
 
 <i>With this preventions we trying to reduce impacts of class imbalance.</i>
-<img src="assets/train_val_test_split_scheme.png"></img>
+<img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/assets/train_val_test_split_scheme.png"></img>
 
 ## Data Augmentation & Normalization
 These Data Augmentation Techniques were used:
@@ -83,26 +83,26 @@ Only difference between Light-Hard data augmentation is probability and limits b
 ## Model
 - We used BreastNet model. For More Information: [[2]](https://github.com/Goodsea/SARS-CoV-2-Diagnose-Tool#References)
 <p align="center">
-  <img src="assets/BreastNet_arch.png"></img>
+  <img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/assets/BreastNet_arch.png"></img>
 </p>
 
 
 ## Training Pipeline
 - Firstly we've train model for 2 epochs to find optimal learning rate. We choose the learning rate according to have most gradient (Not to minimum loss) (2e-4 selected as lr). 
 
-<p align="center"><img src="assets/optimal_lr.JPG" width="450" height="300"></img></p>
+<p align="center"><img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/assets/optimal_lr.JPG" width="450" height="300"></img></p>
 
 - We've warm-up model with this decided learning rate for 5 epochs.
 
 Warm-Up Training Loss Graph | Warm-Up Training AUC Graph 
 :-------------------------:|:-------------------------:
-<img src="results/MODEL LOSS - warmup - .jpg"></img>  |  <img src="results/MODEL AUC SCORE - warmup - .jpg"></img>
+<img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/results/MODEL%20LOSS%20-%20warmup%20-%20.jpg"></img>  |  <img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/results/MODEL%20AUC%20SCORE%20-%20warmup%20-%20.jpg"></img>
 
 - Train the model with SGDR (Stochastic Gradient Descent with Restarts) Learning Rate Schedule for 100 epochs. (Epoch 52: Early Stopped)
 
 Training Loss Graph | Training AUC Graph 
 :-------------------------:|:-------------------------:
-<img src="results/MODEL LOSS - fit - .jpg"></img>  |  <img src="results/MODEL AUC SCORE - fit - .jpg"></img>
+<img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/results/MODEL%20LOSS%20-%20fit%20-%20.jpg"></img>  |  <img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/results/MODEL%20AUC%20SCORE%20-%20fit%20-%20.jpg"></img>
 
 
 # Results
@@ -195,7 +195,7 @@ weighted avg       0.51      0.32      0.36     51409
 
 Confusion Matrix For Converted Binary Classification of SARS-CoV-2| 
 :-------------------------:|
-|<img src="results/Confusion Matrix - Binary SARS-CoV-2 Classification.jpg"> |
+|<img src="https://raw.githubusercontent.com/Goodsea/COVID-19-Diagnose-Tool/master/results/Confusion%20Matrix%20-%20Binary%20SARS-CoV-2%20Classification.jpg"> |
 
 
 
