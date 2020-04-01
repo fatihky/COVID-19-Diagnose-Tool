@@ -42,7 +42,7 @@ _(Tested on Windows 10)_
 <b><i> Ready to work with.</i></b>
 
 # Installation - Web UI
-- Install [node.js](nodejs.org) and [npm](npmjs.com). We suggest using [nvm.sh](nvm.sh).
+- Install node.js and npm . We suggest using nvm.sh .
 - Install web ui's dependencies:
 ```
 > cd web-ui
